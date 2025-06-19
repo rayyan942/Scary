@@ -1,0 +1,70 @@
+!DOCTYPE html>
+<html>
+<head>
+  <title>Game Jumpscare</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #scareImage {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 999;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 20px 40px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Berani Tekan Tombol Ini?</h1>
+<button onclick="triggerJumpscare()">Tekan Aku 😈</button>
+
+<!-- Gambar jumpscare -->
+<img id="scareImage" src="s.jpg" alt="Jumpscare">
+
+<!-- Suara jumpscare -->
+<audio id="scareSound" src="https://www.myinstants.com/media/sounds/scream.mp3"></audio>
+
+<script>
+  function triggerJumpscare() {
+    // Mainkan suara
+    document.getElementById("scareSound").play();
+
+    // Tampilkan gambar
+    const image = document.getElementById("scareImage");
+    image.style.display = "block";
+
+    // Setelah 2 detik, hilangkan lagi
+    setTimeout(() => {
+      image.style.display = "none";
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>
+    
